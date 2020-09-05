@@ -17,6 +17,7 @@ class BaseTest(TestCase):
     def setUpClass(cls):
         # use postgres or mysql in production, sqllite doe not enfore constraints (foreign keys, primary keys)
         app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'
+        app.config['DEBUG'] = False
         with app.app_context():
             db.init_app(app)
 
